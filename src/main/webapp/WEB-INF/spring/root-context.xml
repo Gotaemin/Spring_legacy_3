@@ -5,4 +5,50 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
+		
+	<bean class="com.tm.s3.robot.LeftArm" id="leftArm">
+		<property name="name" value="tm"></property>
+		<property name="size" value="10	"></property>
+	</bean>
+	
+	
+	<bean class="com.tm.s3.robot.RightArm" id="rightArm">
+		<constructor-arg name="color" value="red" ></constructor-arg>
+		<constructor-arg name="power" value="30"></constructor-arg>
+
+		<!-- <constructor-arg index="0" value="20"></constructor-arg> -->
+		<!-- <constructor-arg index="1" value="blue"></constructor-arg> -->
+
+		<!-- <constructor-arg type="java.lang.Integer" value="40"></constructor-arg> -->
+		<!-- <constructor-arg type="java.lang.String" value="yellow"></constructor-arg> -->
+
+	</bean>
+	
+	<bean class="com.tm.s3.robot.Robot" id="robot">
+		<property name="rightArm" ref="rightArm"></property>
+		<property name="leftArm" ref="leftArm"></property>
+	</bean>
+		
+	<bean class="com.tm.s3.robot.Robot" id="robot2">
+		<constructor-arg name="leftArm" ref="leftArm"></constructor-arg>
+		<constructor-arg name="rightArm" ref="rightArm"></constructor-arg>
+	</bean>
+		
+		
+		
+		
+		
+		
+	<!-- MemerDAO memberDAO = new MemberDAO() -->
+	<bean class="com.tm.s3.member.MemberDAO" id="memberDAO"></bean>
+	
+	<!-- MemberServcie memberService = new MemberService() -->
+	<bean class="com.tm.s3.member.MemberService" id="memberService">
+	
+		<!-- MemberService.setMemberDAO(memberDAO) -->	
+		<property name="memberDAO" ref="memberDAO"></property>
+	</bean>
+	
+	
+	
 </beans>
